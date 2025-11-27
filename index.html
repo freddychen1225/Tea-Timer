@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>iOS 原生橋接計時器</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: #f2f2f7; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; width: 80%; max-width: 300px; }
+        h1 { margin: 0 0 10px 0; color: #007aff; }
+        p { color: #8e8e93; font-size: 0.9rem; margin-bottom: 20px; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        
+        /* 這些按鈕實際上是超連結，連結到捷徑 App */
+        a.btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #e5f1ff;
+            color: #007aff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 20px 0;
+            border-radius: 12px;
+            transition: background 0.2s;
+        }
+        a.btn:active { background: #007aff; color: white; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>🍵 茶鐘捷徑版</h1>
+        <p>點擊喚醒 iOS 系統計時器</p>
+
+        <div class="grid">
+            <!-- 呼叫捷徑 Tea，輸入參數 1 -->
+            <a href="shortcuts://run-shortcut?name=Tea&input=1" class="btn">1 分</a>
+            <a href="shortcuts://run-shortcut?name=Tea&input=2" class="btn">2 分</a>
+            <a href="shortcuts://run-shortcut?name=Tea&input=3" class="btn">3 分</a>
+            <a href="shortcuts://run-shortcut?name=Tea&input=4" class="btn">4 分</a>
+            <a href="shortcuts://run-shortcut?name=Tea&input=5" class="btn">5 分</a>
+            <!-- 輸入 0.5 代表 30秒 -->
+            <a href="shortcuts://run-shortcut?name=Tea&input=0.5" class="btn">30 秒</a>
+        </div>
+    </div>
+
+    <div style="margin-top:20px; font-size:0.8rem; color:#aaa;">
+        需配合 iOS 捷徑 "Tea" 使用
+    </div>
+
+</body>
+</html>
